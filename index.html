@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>آموزش قدر مطلق</title>
+
+<!-- اتصال فایل CSS -->
+<link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>✨ آموزش مفهوم قدر مطلق ✨</h1>
+
+<h2>۱. تعریف قدر مطلق</h2>
+<p>
+قدر مطلق یک عدد یعنی <strong>فاصله آن تا صفر</strong> روی محور اعداد.
+فاصله همیشه مثبت است، پس قدر مطلق هیچ‌وقت منفی نمی‌شود.
+</p>
+
+<hr>
+
+<h2>۲. تمرین‌ها</h2>
+<p><strong>تمرین ۱:</strong> مقدار |–7| چند است؟</p>
+<p><strong>تمرین ۲:</strong> مقدار |3| چند است؟</p>
+
+<hr>
+
+<h2>۳. ابزارهای محاسبه</h2>
+
+<h3>محاسبه رادیکال</h3>
+<input id="sqrtInput" type="number" placeholder="یک عدد وارد کن" />
+<button class="button" onclick="calcSqrt()">محاسبه رادیکال</button>
+<p id="sqrtResult"></p>
+
+<h3>محاسبه توان</h3>
+<input id="baseInput" type="number" placeholder="عدد پایه" />
+<input id="expInput" type="number" placeholder="توان چند باشد؟" />
+<button class="button" onclick="calcExp()">محاسبه توان</button>
+<p id="expResult"></p>
+
+<hr>
+
+<h2>۴. نمایش پاسخ تمرین‌ها</h2>
+<button class="button" onclick="showAnswers()">نمایش پاسخ‌ها</button>
+
+<div id="answerBox">
+    <p><strong>پاسخ ۱:</strong> |–7| = 7</p>
+    <p><strong>پاسخ ۲:</strong> |3| = 3</p>
+</div>
+
+</div>
+
+<!-- اتصال فایل JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
