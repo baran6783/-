@@ -1,61 +1,60 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>آموزش قدر مطلق</title>
+<!-- شروع بخش محاسبه جدید -->
+<div class="calculator" style="max-width:400px; margin:auto; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+  <h2 style="text-align:center; color:#2c3e50;">محاسبه پیشرفته</h2>
 
-<!-- اتصال فایل CSS -->
-<link rel="stylesheet" href="style.css" />
+  <!-- ورودی عدد اصلی -->
+  <div style="display:flex; margin-bottom:15px;">
+    <input type="number" id="number" placeholder="عدد را وارد کنید" style="flex:1; padding:8px; border-radius:5px; border:1px solid #ccc;">
+  </div>
 
-</head>
-<body>
+  <!-- ورودی توان -->
+  <div style="display:flex; gap:10px; margin-bottom:15px;">
+    <input type="number" id="power" placeholder="توان را وارد کنید" style="flex:1; padding:8px; border-radius:5px; border:1px solid #ccc;">
+    <button onclick="calcPower()" style="padding:8px 12px; border:none; border-radius:5px; cursor:pointer; background:#3498db; color:#fff;">توان</button>
+  </div>
 
-<div class="container">
+  <!-- دکمه رادیکال -->
+  <div style="display:flex; margin-bottom:15px;">
+    <button onclick="calcSqrt()" style="flex:1; padding:8px; border:none; border-radius:5px; cursor:pointer; background:#3498db; color:#fff;">√ رادیکال</button>
+  </div>
 
-<h1>✨ آموزش مفهوم قدر مطلق ✨</h1>
+  <!-- دکمه ترکیبی -->
+  <div style="display:flex;">
+    <button onclick="calcCombined()" style="flex:1; padding:8px; border:none; border-radius:5px; cursor:pointer; background:#3498db; color:#fff;">ترکیبی (توان و √)</button>
+  </div>
 
-<h2>۱. تعریف قدر مطلق</h2>
-<p>
-قدر مطلق یک عدد یعنی <strong>فاصله آن تا صفر</strong> روی محور اعداد.
-فاصله همیشه مثبت است، پس قدر مطلق هیچ‌وقت منفی نمی‌شود.
-</p>
-
-<hr>
-
-<h2>۲. تمرین‌ها</h2>
-<p><strong>تمرین ۱:</strong> مقدار |–7| چند است؟</p>
-<p><strong>تمرین ۲:</strong> مقدار |3| چند است؟</p>
-
-<hr>
-
-<h2>۳. ابزارهای محاسبه</h2>
-
-<h3>محاسبه رادیکال</h3>
-<input id="sqrtInput" type="number" placeholder="یک عدد وارد کن" />
-<button class="button" onclick="calcSqrt()">محاسبه رادیکال</button>
-<p id="sqrtResult"></p>
-
-<h3>محاسبه توان</h3>
-<input id="baseInput" type="number" placeholder="عدد پایه" />
-<input id="expInput" type="number" placeholder="توان چند باشد؟" />
-<button class="button" onclick="calcExp()">محاسبه توان</button>
-<p id="expResult"></p>
-
-<hr>
-
-<h2>۴. نمایش پاسخ تمرین‌ها</h2>
-<button class="button" onclick="showAnswers()">نمایش پاسخ‌ها</button>
-
-<div id="answerBox">
-    <p><strong>پاسخ ۱:</strong> |–7| = 7</p>
-    <p><strong>پاسخ ۲:</strong> |3| = 3</p>
+  <p id="result" style="margin-top:20px; font-weight:bold; text-align:center; color:#e74c3c;"></p>
 </div>
 
-</div>
+<script>
+function calcSqrt() {
+  const num = parseFloat(document.getElementById('number').value);
+  if (!isNaN(num)) {
+    document.getElementById('result').textContent = '√' + num + ' = ' + Math.sqrt(num).toFixed(4);
+  } else {
+    document.getElementById('result').textContent = 'عدد معتبر وارد کنید!';
+  }
+}
 
-<!-- اتصال فایل JS -->
-<script src="script.js"></script>
+function calcPower() {
+  const num = parseFloat(document.getElementById('number').value);
+  const pow = parseFloat(document.getElementById('power').value);
+  if (!isNaN(num) && !isNaN(pow)) {
+    document.getElementById('result').textContent = num + '^' + pow + ' = ' + Math.pow(num, pow).toFixed(4);
+  } else {
+    document.getElementById('result').textContent = 'عدد و توان معتبر وارد کنید!';
+  }
+}
 
-</body>
-</html>
+function calcCombined() {
+  const num = parseFloat(document.getElementById('number').value);
+  const pow = parseFloat(document.getElementById('power').value);
+  if (!isNaN(num) && !isNaN(pow)) {
+    const result = Math.pow(num, pow);
+    document.getElementById('result').textContent = '√(' + num + '^' + pow + ') = ' + Math.sqrt(result).toFixed(4);
+  } else {
+    document.getElementById('result').textContent = 'عدد و توان معتبر وارد کنید!';
+  }
+}
+</script>
+<!-- پایان بخش محاسبه جدید -->
